@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="增删改查">
+<meta name="description" content="创建表1create database &lt;dbname&gt;;   123456# 列名 类型 约束create database Product (    id char(4) not null,    price integer default 0,    primary key (id));  删除表12# 不保留表结构，彻底删除drop table Product  表定义更新12">
 <meta property="og:type" content="website">
 <meta property="og:title" content="SQL">
 <meta property="og:url" content="https://ahchfwk.github.io/internet/SQL.html">
 <meta property="og:site_name" content="fangweikang个人博客">
-<meta property="og:description" content="增删改查">
+<meta property="og:description" content="创建表1create database &lt;dbname&gt;;   123456# 列名 类型 约束create database Product (    id char(4) not null,    price integer default 0,    primary key (id));  删除表12# 不保留表结构，彻底删除drop table Product  表定义更新12">
 <meta property="og:locale">
-<meta property="article:published_time" content="2023-06-11T04:51:13.678Z">
-<meta property="article:modified_time" content="2023-06-11T04:38:47.483Z">
+<meta property="article:published_time" content="2023-06-11T14:50:50.958Z">
+<meta property="article:modified_time" content="2023-06-11T14:50:50.958Z">
 <meta property="article:author" content="fangweikang">
 <meta name="twitter:card" content="summary">
 
@@ -257,7 +257,46 @@
       <div class="post-body">
         
         
-          <p>增删改查</p>
+          <h1 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> database <span class="operator">&lt;</span>dbname<span class="operator">&gt;</span>; </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 列名 类型 约束</span><br><span class="line"><span class="keyword">create</span> database Product (</span><br><span class="line">    id <span class="type">char</span>(<span class="number">4</span>) <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">    price <span class="type">integer</span> <span class="keyword">default</span> <span class="number">0</span>,</span><br><span class="line">    <span class="keyword">primary</span> key (id)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h1 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 不保留表结构，彻底删除</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> Product</span><br></pre></td></tr></table></figure>
+
+<h1 id="表定义更新"><a href="#表定义更新" class="headerlink" title="表定义更新"></a>表定义更新</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 增加一列</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> Product <span class="keyword">add</span> <span class="keyword">column</span> name <span class="type">varchar</span>(<span class="number">64</span>);</span><br><span class="line"># 增加多列</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> Product <span class="keyword">add</span> <span class="keyword">column</span> name <span class="type">varchar</span>(<span class="number">64</span>), <span class="keyword">add</span> <span class="keyword">column</span> type <span class="type">integer</span>;</span><br><span class="line"># 删除列</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> Product <span class="keyword">drop</span> <span class="keyword">column</span> name, type;</span><br><span class="line"># 修改表名</span><br><span class="line">rename <span class="keyword">table</span> Product <span class="keyword">to</span> xx;</span><br></pre></td></tr></table></figure>
+
+<h1 id="基础查询"><a href="#基础查询" class="headerlink" title="基础查询"></a>基础查询</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 别名可以用中文，但要加双引号</span><br><span class="line"><span class="keyword">select</span> name <span class="keyword">as</span> &quot;名称&quot; <span class="keyword">from</span> Product;</span><br><span class="line"># <span class="keyword">distinct</span>只能用在第一个列名前</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> name,type <span class="keyword">from</span> Product;</span><br><span class="line"># 对<span class="keyword">null</span>只能用<span class="keyword">is</span>和<span class="keyword">is</span> <span class="keyword">not</span>进行判断</span><br><span class="line"><span class="keyword">select</span> name <span class="keyword">from</span> Product <span class="keyword">where</span> name <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">null</span>;</span><br></pre></td></tr></table></figure>
+
+<h1 id="聚合查询"><a href="#聚合查询" class="headerlink" title="聚合查询"></a>聚合查询</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># <span class="built_in">count</span>(<span class="operator">*</span>)计算所有行（只有count可以用<span class="operator">*</span>参数），<span class="built_in">count</span>(name)不计算name <span class="keyword">is</span> <span class="keyword">null</span>行，sum<span class="operator">/</span>avg<span class="operator">/</span>max<span class="operator">/</span>min也不计算name <span class="keyword">is</span> <span class="keyword">null</span>行</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="operator">*</span>), <span class="built_in">count</span>(name) <span class="keyword">from</span> Product;</span><br><span class="line"># 使用聚合函数时，<span class="keyword">select</span>只能出现聚合键和聚合函数</span><br><span class="line"># <span class="keyword">having</span>子句只能使用常数、聚合键、聚合函数</span><br><span class="line"># <span class="keyword">where</span>指定行对应的条件，<span class="keyword">having</span>指定组对应的条件</span><br></pre></td></tr></table></figure>
+
+<h1 id="数据更新"><a href="#数据更新" class="headerlink" title="数据更新"></a>数据更新</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="复杂查询"><a href="#复杂查询" class="headerlink" title="复杂查询"></a>复杂查询</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="函数、谓词、case"><a href="#函数、谓词、case" class="headerlink" title="函数、谓词、case"></a>函数、谓词、case</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="集合运算"><a href="#集合运算" class="headerlink" title="集合运算"></a>集合运算</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="sql高级处理"><a href="#sql高级处理" class="headerlink" title="sql高级处理"></a>sql高级处理</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="sql书写和执行顺序"><a href="#sql书写和执行顺序" class="headerlink" title="sql书写和执行顺序"></a>sql书写和执行顺序</h1><p><strong>书写顺序</strong>：SELECT -&gt; FROM -&gt; JOIN -&gt; ON -&gt; WHERE -&gt; GROUP BY -&gt; HAVING -&gt; UNION -&gt; ORDER BY -&gt;LIMIT</p>
+<p><strong>执行顺序</strong>：FROM -&gt; ON -&gt; JOIN -&gt; WHERE -&gt; GROUP BY -&gt; HAVING -&gt; SELECT -&gt; UNION -&gt; ORDER BY -&gt;LIMIT</p>
+<blockquote>
+<p>todo</p>
+<p>类型</p>
+<p>char(8) abc-&gt;’abc     ‘</p>
+<p>varchar abc-&gt;abc</p>
+<p>超过长度如何处理</p>
+<p>所有支持的类型</p>
+</blockquote>
 
         
       </div>
@@ -300,8 +339,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -352,6 +400,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%A1%A8"><span class="nav-number">1.</span> <span class="nav-text">创建表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E8%A1%A8"><span class="nav-number">2.</span> <span class="nav-text">删除表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A1%A8%E5%AE%9A%E4%B9%89%E6%9B%B4%E6%96%B0"><span class="nav-number">3.</span> <span class="nav-text">表定义更新</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%9F%A5%E8%AF%A2"><span class="nav-number">4.</span> <span class="nav-text">基础查询</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%81%9A%E5%90%88%E6%9F%A5%E8%AF%A2"><span class="nav-number">5.</span> <span class="nav-text">聚合查询</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%9B%B4%E6%96%B0"><span class="nav-number">6.</span> <span class="nav-text">数据更新</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E6%9F%A5%E8%AF%A2"><span class="nav-number">7.</span> <span class="nav-text">复杂查询</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E3%80%81%E8%B0%93%E8%AF%8D%E3%80%81case"><span class="nav-number">8.</span> <span class="nav-text">函数、谓词、case</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97"><span class="nav-number">9.</span> <span class="nav-text">集合运算</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sql%E9%AB%98%E7%BA%A7%E5%A4%84%E7%90%86"><span class="nav-number">10.</span> <span class="nav-text">sql高级处理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sql%E4%B9%A6%E5%86%99%E5%92%8C%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="nav-number">11.</span> <span class="nav-text">sql书写和执行顺序</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
