@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一、可靠性、可扩展性、可维护性单个数据工具已经不能满足应用系统的需求，工作被拆分成一系列能被单个工具高效完成的任务。这些子系统（数据库，缓存，mq等）及其组合统称为数据系统。 一个应用被称为数据密集型的，如果数据是其主要挑战（数据量，数据复杂度、数据变化速度)——与之相对的是计算密集型，即处理器速度是其瓶颈。 软件系统中很重要的三个问题：  可靠性（Reliability）：系统在某些故障（硬件故">
+<meta property="og:type" content="website">
+<meta property="og:title" content="fangweikang个人博客">
+<meta property="og:url" content="https://ahchfwk.github.io/internet/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%AF%86%E9%9B%86%E5%9E%8B%E5%BA%94%E7%94%A8%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1.html">
+<meta property="og:site_name" content="fangweikang个人博客">
+<meta property="og:description" content="一、可靠性、可扩展性、可维护性单个数据工具已经不能满足应用系统的需求，工作被拆分成一系列能被单个工具高效完成的任务。这些子系统（数据库，缓存，mq等）及其组合统称为数据系统。 一个应用被称为数据密集型的，如果数据是其主要挑战（数据量，数据复杂度、数据变化速度)——与之相对的是计算密集型，即处理器速度是其瓶颈。 软件系统中很重要的三个问题：  可靠性（Reliability）：系统在某些故障（硬件故">
+<meta property="og:locale">
+<meta property="og:image" content="https://picture-bed-1251805293.file.myqcloud.com/1630635645347-1e1e5660-4229-42a2-9bf9-da9850ff944b.png">
+<meta property="og:image" content="https://picture-bed-1251805293.file.myqcloud.com/1630635669997-5d4951ae-5ec3-426d-9fc4-35a3cf579088.png">
+<meta property="og:image" content="https://picture-bed-1251805293.file.myqcloud.com/1630635717226-c218a4b8-b6f9-4e35-8f10-549d65cf3e23.png">
+<meta property="og:image" content="https://picture-bed-1251805293.file.myqcloud.com/1630635787568-a7885c39-997f-4edb-8fb9-79eff18467a2.png">
+<meta property="article:published_time" content="2023-09-05T03:37:51.383Z">
+<meta property="article:modified_time" content="2023-09-05T03:37:51.383Z">
+<meta property="article:author" content="fangweikang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://picture-bed-1251805293.file.myqcloud.com/1630635645347-1e1e5660-4229-42a2-9bf9-da9850ff944b.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://ahchfwk.github.io/internet/数据库/数据密集型应用系统设计.html"/>
+
+
+
+
+
+  <title> | fangweikang个人博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">fangweikang个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">为往圣继绝学</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-internet">
+          <a href="/internet/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-desktop"></i> <br />
+            
+            互联网
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-read">
+          <a href="/read/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-paper-plane"></i> <br />
+            
+            读书
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+	<h1 class="post-title" itemprop="name headline"></h1>
+
+
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <h1 id="一、可靠性、可扩展性、可维护性"><a href="#一、可靠性、可扩展性、可维护性" class="headerlink" title="一、可靠性、可扩展性、可维护性"></a>一、可靠性、可扩展性、可维护性</h1><p>单个数据工具已经不能满足应用系统的需求，工作被拆分成一系列能被单个工具高效完成的任务。这些子系统（数据库，缓存，mq等）及其组合统称为数据系统。</p>
+<p>一个应用被称为数据密集型的，如果数据是其主要挑战（数据量，数据复杂度、数据变化速度)——与之相对的是计算密集型，即处理器速度是其瓶颈。 软件系统中很重要的三个问题：</p>
+<ol>
+<li><strong>可靠性</strong>（Reliability）：系统在某些故障（硬件故障、软件故障、人为错误）中仍可正常工作</li>
+<li><strong>可扩展性</strong>（Scalability）：有合理的办法应对系统的增长（数据量、流量、复杂性）</li>
+<li><strong>可维护性</strong>（Maintainability）：许多不同的人在不同的生命周期，都能高效地在系统上工作</li>
+</ol>
+<h2 id="可靠性"><a href="#可靠性" class="headerlink" title="可靠性"></a>可靠性</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ol>
+<li>造成错误的原因叫做故障（fault），能预料并应对故障的系统特性可称为容错（fault-tolerant）或者韧性（resilient）。讨论容错时，只有讨论特定类型的错误</li>
+<li>故障（fault）不同于失效（failure）：故障指的是一部分状态偏离标准，而失效则是系统作为一个整体停止向用户提供服务。</li>
+<li>通常倾向于容忍错误（而不是阻止错误），但也有预防胜于治疗的情况（比如安全问题）</li>
+</ol>
+<h3 id="硬件故障"><a href="#硬件故障" class="headerlink" title="硬件故障"></a>硬件故障</h3><ol>
+<li>一般都是增加单个硬件的冗余度</li>
+<li>云平台的设计是优先考虑灵活性和弹性，而不是单机可靠性。</li>
+</ol>
+<h3 id="软件错误"><a href="#软件错误" class="headerlink" title="软件错误"></a>软件错误</h3><ol>
+<li>这类软件故障的bug 通常潜伏很长时间，直到被异常情况触发为止。往往是某个假设出于某种原因最后不在成立了。</li>
+<li>解决办法：仔细考虑假设和交互；彻底的测试；重启；监控。</li>
+</ol>
+<h3 id="人为错误"><a href="#人为错误" class="headerlink" title="人为错误"></a>人为错误</h3><ol>
+<li>人是不可靠的，运维配置错误是导致服务中断的首要原因。</li>
+<li>解决办法：最小化犯错机会的方式设计系统；容易犯错的地方解耦；测试；快速恢复机制；监控；培训。</li>
+</ol>
+<h2 id="可扩展性"><a href="#可扩展性" class="headerlink" title="可扩展性"></a>可扩展性</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><ol>
+<li>可扩展性（Scalability）是用来描述系统应对负载增长能力的术语。</li>
+</ol>
+<h3 id="描述负载"><a href="#描述负载" class="headerlink" title="描述负载"></a>描述负载</h3><ol>
+<li>负载可以用负载参数的数字来描述，取决于系统架构</li>
+<li>推特的发推设计：<ol>
+<li>推文放在全局推文集合中，查询的时候做 join<ol>
+<li><img src="https://picture-bed-1251805293.file.myqcloud.com/1630635645347-1e1e5660-4229-42a2-9bf9-da9850ff944b.png" alt="image.png"></li>
+</ol>
+</li>
+<li>推文插入到每个关注者的时间线中，「扇出」比较大，当有千万粉丝的大 V 发推压力大<ol>
+<li><img src="https://picture-bed-1251805293.file.myqcloud.com/1630635669997-5d4951ae-5ec3-426d-9fc4-35a3cf579088.png" alt="image.png"></li>
+</ol>
+</li>
+<li>推特从方案一变成了方案二，然后变成了两者结合的方式</li>
+</ol>
+</li>
+</ol>
+<h3 id="描述性能"><a href="#描述性能" class="headerlink" title="描述性能"></a>描述性能</h3><ol>
+<li>当描述好负载以后，问题变成了：<ol>
+<li>增加负载参数并保持系统资源不变时，系统性能将受到什么影响？</li>
+<li>增加负载参数并希望性能不变时，需要增加多少系统资源？</li>
+</ol>
+</li>
+<li>批处理系统，通常关心吞吐量（throughput）；在线系统，通常更关心响应时间（response time）</li>
+<li>对于系统响应时间而言，最好用百分位点，比如中位数、p99 等标识。<ol>
+<li><img src="https://picture-bed-1251805293.file.myqcloud.com/1630635717226-c218a4b8-b6f9-4e35-8f10-549d65cf3e23.png" alt="image.png"></li>
+</ol>
+</li>
+<li>测量客户端的响应时间非常重要（而不是服务端），比如会出现头部阻塞、网络延迟等。</li>
+<li>实践中的百分位点，可以用一个滑动的时间窗口（比如 10 分钟）进行统计。可以对列表进行排序，效率低的话，考虑一下前向衰减，t-digest 等方法近似计算。<ol>
+<li><img src="https://picture-bed-1251805293.file.myqcloud.com/1630635787568-a7885c39-997f-4edb-8fb9-79eff18467a2.png" alt="image.png"></li>
+</ol>
+</li>
+</ol>
+<h3 id="应对负载的方法"><a href="#应对负载的方法" class="headerlink" title="应对负载的方法"></a>应对负载的方法</h3><ol>
+<li>纵向扩展：转向更强大的机器</li>
+<li>横向扩展：将负载分布到多台小机器上</li>
+<li>弹性系统：检测到负载增加时自动增加计算资源</li>
+<li>跨多台机器部署无状态服务比较简单，但是把带状态的数据系统从单节点变成分布式配置则可能引入许多额外复杂度。因此，应该尽量将数据库放在单个节点上。</li>
+</ol>
+<h2 id="可维护性"><a href="#可维护性" class="headerlink" title="可维护性"></a>可维护性</h2><ol>
+<li>在设计之初就尽量考虑尽可能减少维护期间的痛苦，从而避免自己的软件系统变成遗留系统。</li>
+<li>三个设计原则：可操作性（Operability）便于运维团队保持系统平稳运行。简单性（Simplicity）从系统中消除尽可能多的复杂度（complexity），使新工程师也能轻松理解系统。（注意这和用户接口的简单性不一样。）可演化性（evolability）使工程师在未来能轻松地对系统进行更改，当需求变化时为新应用场景做适配。也称为可扩展性（extensibility），可修改性（modifiability）或可塑性（plasticity）。</li>
+</ol>
+<h3 id="可操作性：人生苦短，关爱运维"><a href="#可操作性：人生苦短，关爱运维" class="headerlink" title="可操作性：人生苦短，关爱运维"></a>可操作性：人生苦短，关爱运维</h3><ul>
+<li>尽量自动化</li>
+</ul>
+<h3 id="简单性：管理复杂度"><a href="#简单性：管理复杂度" class="headerlink" title="简单性：管理复杂度"></a>简单性：管理复杂度</h3><ul>
+<li>消除额外的（accidental）的复杂度</li>
+<li>消除额外复杂度的最好工具之一是抽象（abstraction）</li>
+</ul>
+<h3 id="可演化性：拥抱变化"><a href="#可演化性：拥抱变化" class="headerlink" title="可演化性：拥抱变化"></a>可演化性：拥抱变化</h3><ul>
+<li>敏捷（agile） 工作模式为适应变化提供了一个框架</li>
+<li>简单易懂的系统通常比复杂系统更容易修改，即可演化性（evolvability）</li>
+</ul>
+<h1 id="二、数据模型与查询语言"><a href="#二、数据模型与查询语言" class="headerlink" title="二、数据模型与查询语言"></a>二、数据模型与查询语言</h1><h1 id="三、存储与检索"><a href="#三、存储与检索" class="headerlink" title="三、存储与检索"></a>三、存储与检索</h1><h1 id="四、数据编码与演化"><a href="#四、数据编码与演化" class="headerlink" title="四、数据编码与演化"></a>四、数据编码与演化</h1><h1 id="五、数据复制"><a href="#五、数据复制" class="headerlink" title="五、数据复制"></a>五、数据复制</h1><h1 id="六、分区"><a href="#六、分区" class="headerlink" title="六、分区"></a>六、分区</h1><h1 id="七、事物"><a href="#七、事物" class="headerlink" title="七、事物"></a>七、事物</h1><h1 id="八、分布式系统的挑战"><a href="#八、分布式系统的挑战" class="headerlink" title="八、分布式系统的挑战"></a>八、分布式系统的挑战</h1><h1 id="九、一致性与共识"><a href="#九、一致性与共识" class="headerlink" title="九、一致性与共识"></a>九、一致性与共识</h1><h1 id="十、批处理"><a href="#十、批处理" class="headerlink" title="十、批处理"></a>十、批处理</h1><h1 id="十一、流处理"><a href="#十一、流处理" class="headerlink" title="十一、流处理"></a>十一、流处理</h1><h1 id="十二、数据系统的未来"><a href="#十二、数据系统的未来" class="headerlink" title="十二、数据系统的未来"></a>十二、数据系统的未来</h1>
+        
+      </div>
+      
+      
+      
+    </div>
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%8F%AF%E9%9D%A0%E6%80%A7%E3%80%81%E5%8F%AF%E6%89%A9%E5%B1%95%E6%80%A7%E3%80%81%E5%8F%AF%E7%BB%B4%E6%8A%A4%E6%80%A7"><span class="nav-number">1.</span> <span class="nav-text">一、可靠性、可扩展性、可维护性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E9%9D%A0%E6%80%A7"><span class="nav-number">1.1.</span> <span class="nav-text">可靠性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">1.1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6%E6%95%85%E9%9A%9C"><span class="nav-number">1.1.2.</span> <span class="nav-text">硬件故障</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E9%94%99%E8%AF%AF"><span class="nav-number">1.1.3.</span> <span class="nav-text">软件错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%BA%E4%B8%BA%E9%94%99%E8%AF%AF"><span class="nav-number">1.1.4.</span> <span class="nav-text">人为错误</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E6%89%A9%E5%B1%95%E6%80%A7"><span class="nav-number">1.2.</span> <span class="nav-text">可扩展性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0%E8%B4%9F%E8%BD%BD"><span class="nav-number">1.2.2.</span> <span class="nav-text">描述负载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0%E6%80%A7%E8%83%BD"><span class="nav-number">1.2.3.</span> <span class="nav-text">描述性能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E5%AF%B9%E8%B4%9F%E8%BD%BD%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.4.</span> <span class="nav-text">应对负载的方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E7%BB%B4%E6%8A%A4%E6%80%A7"><span class="nav-number">1.3.</span> <span class="nav-text">可维护性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E6%93%8D%E4%BD%9C%E6%80%A7%EF%BC%9A%E4%BA%BA%E7%94%9F%E8%8B%A6%E7%9F%AD%EF%BC%8C%E5%85%B3%E7%88%B1%E8%BF%90%E7%BB%B4"><span class="nav-number">1.3.1.</span> <span class="nav-text">可操作性：人生苦短，关爱运维</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E6%80%A7%EF%BC%9A%E7%AE%A1%E7%90%86%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">1.3.2.</span> <span class="nav-text">简单性：管理复杂度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E6%BC%94%E5%8C%96%E6%80%A7%EF%BC%9A%E6%8B%A5%E6%8A%B1%E5%8F%98%E5%8C%96"><span class="nav-number">1.3.3.</span> <span class="nav-text">可演化性：拥抱变化</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80"><span class="nav-number">2.</span> <span class="nav-text">二、数据模型与查询语言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%AD%98%E5%82%A8%E4%B8%8E%E6%A3%80%E7%B4%A2"><span class="nav-number">3.</span> <span class="nav-text">三、存储与检索</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E6%95%B0%E6%8D%AE%E7%BC%96%E7%A0%81%E4%B8%8E%E6%BC%94%E5%8C%96"><span class="nav-number">4.</span> <span class="nav-text">四、数据编码与演化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E6%95%B0%E6%8D%AE%E5%A4%8D%E5%88%B6"><span class="nav-number">5.</span> <span class="nav-text">五、数据复制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E5%88%86%E5%8C%BA"><span class="nav-number">6.</span> <span class="nav-text">六、分区</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E4%BA%8B%E7%89%A9"><span class="nav-number">7.</span> <span class="nav-text">七、事物</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%AB%E3%80%81%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%8C%91%E6%88%98"><span class="nav-number">8.</span> <span class="nav-text">八、分布式系统的挑战</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B9%9D%E3%80%81%E4%B8%80%E8%87%B4%E6%80%A7%E4%B8%8E%E5%85%B1%E8%AF%86"><span class="nav-number">9.</span> <span class="nav-text">九、一致性与共识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%81%E3%80%81%E6%89%B9%E5%A4%84%E7%90%86"><span class="nav-number">10.</span> <span class="nav-text">十、批处理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%81%E4%B8%80%E3%80%81%E6%B5%81%E5%A4%84%E7%90%86"><span class="nav-number">11.</span> <span class="nav-text">十一、流处理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%81%E4%BA%8C%E3%80%81%E6%95%B0%E6%8D%AE%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%9C%AA%E6%9D%A5"><span class="nav-number">12.</span> <span class="nav-text">十二、数据系统的未来</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">fangweikang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
